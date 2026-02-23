@@ -50,7 +50,6 @@ Amazon ECR (Docker Image Registry)
 ## 📁 Project Structure
 
 scale-api-project/
-│
 ├── application/
 │   ├── app/
 │   │   └── api.py
@@ -183,15 +182,3 @@ This project demonstrates:
 
 Aditya Krish  
 Cloud & DevOps Enthusiast
-
-
-
-
-
-
-
-
-
-
-
-  
