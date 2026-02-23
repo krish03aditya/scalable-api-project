@@ -48,27 +48,24 @@ Amazon ECR (Docker Image Registry)
 ---
 
 ## 📁 Project Structure
-
+```
 scale-api-project/
 ├── application/
-│   ├── app/
-│   │   └── api.py
-│   └── requirements.txt
-│
+│   └── app/
+│       ├── api.py
+│       └── requirements.txt
 ├── infra/
 │   ├── main.tf
 │   ├── variables.tf
 │   └── outputs.tf
-│
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml
-│
 ├── Dockerfile
 ├── .dockerignore
 ├── .gitignore
 └── README.md
-
+```
 ---
 
 ## 🐳 Running Locally
@@ -182,3 +179,4 @@ This project demonstrates:
 
 Aditya Krish  
 Cloud & DevOps Enthusiast
+
