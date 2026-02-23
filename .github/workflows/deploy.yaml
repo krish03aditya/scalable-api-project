@@ -24,14 +24,19 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: Set Image Tag
+        id: vars
+        run: echo "IMAGE_TAG=${GITHUB_SHA}" >> $GITHUB_OUTPUT
+
       - name: Build Docker Image
-        run: |
-          docker build -t fastapi-app .
+        run: docker build -t fastapi-app .
 
       - name: Tag Docker Image
         run: |
+          docker tag fastapi-app:latest ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ steps.vars.outputs.IMAGE_TAG }}
           docker tag fastapi-app:latest ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:latest
 
       - name: Push Docker Image
         run: |
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ steps.vars.outputs.IMAGE_TAG }}
           docker push ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:latest
